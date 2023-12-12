@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title',50);
-            $table->string('body',200);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->string('artist_name',100)->nullable();
+            $table->integer('music_id');
+            $table->string('title',100);
+            $table->string('body',300);
             $table->timestamps();
             $table->softDeletes();
         });

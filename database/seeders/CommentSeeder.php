@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class PostSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,16 +16,13 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
+        DB::table('comments')->insert([
             'user_id' => '1',
-            'category_id' => '1',
-            'music_id' => '1',
-            'artist_name' => 'One Direction',
-            'title' => 'One Direction',
-            'body' => 'One Direction',
+            'post_id' => '1',
+            'body' => 'comment',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'deleted_at' => null,
-        ]);
+            ]);
     }
 }
