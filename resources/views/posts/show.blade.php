@@ -11,14 +11,17 @@
     <x-app-layout>
     <body class="antialiased">
         <x-slot name="header">HOME</x-slot>
-        <h1>LyricLearn</h1>
-        <div class='post'>
-             @foreach ($posts as $post)
-                <div class='post'>
-                    <a href "/posts/{{ $post->id }}">{{ $post->title }}</h2></a>
-                    <p class='body'>{{ $post->body }}</p>
-                </div>
-            @endforeach
+        <h1 class='title'>
+            {{ $post->title }}
+        </h1>
+        <div class='content'>
+            <div class='content_post'>
+                <h3>本文</h3>
+                <p>{{ $post->body }}</p>
+            </div>
+            <div class='footer'>
+                <a href="/">戻る</a>
+            </div>
         </div>
     </body>
     </x-app-layout>
