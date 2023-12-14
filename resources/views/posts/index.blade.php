@@ -8,18 +8,16 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <x-app-layout>
     <body class="antialiased">
-        <x-slot name="header">HOME</x-slot>
         <h1>LyricLearn</h1>
+        <a href="/posts/create">投稿</a>
         <div class='post'>
              @foreach ($posts as $post)
                 <div class='post'>
-                    <a href "/posts/{{ $post->id }}">{{ $post->title }}</h2></a>
+                    <a href= "/posts/{{ $post->id }}">{{ $post->title }}</a>
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
         </div>
     </body>
-    </x-app-layout>
 </html>

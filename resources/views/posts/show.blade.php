@@ -8,9 +8,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <x-app-layout>
     <body class="antialiased">
-        <x-slot name="header">HOME</x-slot>
         <h1 class='title'>
             {{ $post->title }}
         </h1>
@@ -24,5 +22,4 @@
             </div>
         </div>
     </body>
-    </x-app-layout>
 </html>

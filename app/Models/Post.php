@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     
+    
     public function users()
     {
         return $this->belongsToMany(User::class);
@@ -23,4 +24,12 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    
+    protected $fillable = [
+        'title',
+        'body',
+        'user_id',
+        'category_id',
+        'music_id'
+        ];
 }
