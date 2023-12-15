@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -24,7 +24,7 @@ class PostController extends Controller
         return view('posts/create');
     }
     
-    public function store(PostRequest $request, Post $post)
+    public function store(Post $post, PostRequest $request)
     {
         $input = $request['post'];
         $input['user_id'] = \Auth::id();
