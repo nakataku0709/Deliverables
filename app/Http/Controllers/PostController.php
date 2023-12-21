@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,9 +15,9 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->get()]);
     }
     
-    public function show(Post $post)
+    public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post]);
+        return view('posts/show')->with(['post' => $post])->with(['comments' => $comment->get()]);
     }
     
     public function create()

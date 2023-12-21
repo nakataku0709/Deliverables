@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>LyricLearn</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    </head>
-    <body class="antialiased">
+<x-app-layout>
         <h1>LyricLearn</h1>
         <a href="/posts/create">投稿</a>
         <div class='post'>
              @foreach ($posts as $post)
                 <div class='post'>
+                    <h2>＜キーフレーズ＞</h2>
                     <a href= "/posts/{{ $post->id }}">{{ $post->title }}</a>
+                    <h3>＜解説＞</h3>
                     <p class='body'>{{ $post->body }}</p>
-                    <form action="/posts/{{ $post->id}}" id="form_{{ $post->id }}" method="post">
+                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">削除</button>
@@ -33,5 +25,4 @@
                 }
             }
         </script>
-    </body>
-</html>
+</x-app-layout>

@@ -19,7 +19,16 @@ class CommentSeeder extends Seeder
         DB::table('comments')->insert([
             'user_id' => '1',
             'post_id' => '1',
-            'body' => 'comment',
+            'body' => 'kryptoniteはアメリカのマンガ「スーパーマン」の中で描写されているスーパーマンを無力化する石のことです。',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'deleted_at' => null,
+            ]);
+            
+        DB::table('comments')->insert([
+            'user_id' => '1',
+            'post_id' => '1',
+            'body' => 'kryptoniteはアメリカのマンガ「スーパーマン」の中で描写されているスーパーマンを無力化する石のことです。',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'deleted_at' => null,
