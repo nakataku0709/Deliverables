@@ -21,8 +21,32 @@ class PostSeeder extends Seeder
             'category_id' => '1',
             'music_id' => '1',
             'artist_name' => 'One Direction',
-            'title' => 'One Direction',
-            'body' => 'One Direction',
+            'title' => "You're insecure",
+            'body' => 'insecureは不安なという意味',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'deleted_at' => null,
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => '1',
+            'category_id' => '1',
+            'music_id' => '1',
+            'artist_name' => 'Charlie Puth',
+            'title' => 'Get her name and get her nummber',
+            'body' => 'あの子の名前を知って、電話番号を知って',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'deleted_at' => null,
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => '1',
+            'category_id' => '1',
+            'music_id' => '1',
+            'artist_name' => 'Shawn Mendes',
+            'title' => "There's Nothing Holdin' ME Back",
+            'body' => '彼女が行く場所についていきたい',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'deleted_at' => null,

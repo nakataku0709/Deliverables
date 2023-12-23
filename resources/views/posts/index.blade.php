@@ -8,6 +8,8 @@
                     <a href= "/posts/{{ $post->id }}">{{ $post->title }}</a>
                     <h3>＜解説＞</h3>
                     <p class='body'>{{ $post->body }}</p>
+                    <button onclick="favorite({{ $post->id }})">いいね</button>
+                    <a href= "/posts/{{ $post->id }}">コメント</a>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -25,4 +27,22 @@
                 }
             }
         </script>
+        <span>
+        <img src="{{asset('img/favoritebutton.png')}}" width="30px">
+        @if($favorite)
+        	<a href="{{ route('unfavorite', $post) }}" class="btn btn-success btn-sm">
+        		いいね
+        		<span class="badge">
+        			{{ $post->favorites->count() }}
+        		</span>
+        	</a>
+        @else
+        	<a href="{{ route('favorite', $post) }}" class="btn btn-secondary btn-sm">
+        		いいね
+        		<span class="badge">
+        			{{ $post->favorites->count() }}
+        		</span>
+        	</a>
+        @endif
+        </span>
 </x-app-layout>
