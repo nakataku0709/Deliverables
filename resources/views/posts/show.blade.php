@@ -9,10 +9,11 @@
 
     </head>
     <body class="antialiased">
-        <h2>＜キーフレーズ＞</h2>
-        <h1 class='title'>
+        <h1>＜コメント＞</h1>
+        <h3>＜キーフレーズ＞</h3>
+        <h3 class='title'>
             {{ $post->title }}
-        </h1>
+        </h3>
         <div class='content'>
             <div class='content_post'>
                 <h3>＜解説＞</h3>
@@ -28,6 +29,7 @@
         <div class='comment'>
                 @foreach($comments as $comment)
                     <h3>＜コメント＞</h3>
+                    <h4>{{ $comment->user->name }}</h4>
                     <h4>{{ $comment->body }}</h4>
                 @endforeach
         </div>
