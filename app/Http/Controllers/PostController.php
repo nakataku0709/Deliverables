@@ -11,16 +11,15 @@ use App\Models\Favorite;
 
 class PostController extends Controller
 {
-    public function index(Post $post, Favorite $favorite)
+    public function index(Post $post)
     {
-        return view('posts/index')->with(['posts' => $post->get()]);  
-        $favorite=Favorite::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
-        return view('posts/index', compact('post', 'favorite'));
+        //return view('posts/index')->with(['posts' => $post->get()]);  
+        return view('posts/index')->with(['posts' => $post->get()]);
     }
     
     public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post])->with(['comments' => $comment->get()]);
+        return view('posts/show')->with(['post' => $post, 'comments' => $comment->where('post_id', $post->id)->get()]);
     }
     
     public function create()

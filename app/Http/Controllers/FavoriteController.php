@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    public function favorite(Post $post, Request $request){
+    public function favorite(Post $post){
         $favorite=New Favorite();
         $favorite->post_id=$post->id;
         $favorite->user_id=Auth::user()->id;
@@ -17,7 +17,7 @@ class FavoriteController extends Controller
         return back();
     }
     
-    public function unfavorite(Post $post, Request $request){
+    public function unfavorite(Post $post){
         $user=Auth::user()->id;
         $favorite=Favorite::where('post_id', $post->id)->where('user_id', $user)->first();
         $favorite->delete();
