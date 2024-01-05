@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('artist_name',100)->nullable();
-            $table->integer('music_id');
+            $table->string('music_name')->nullable();
+            $table->string('preview')->nullable();
+            $table->string('music_id');
             $table->string('title',100);
             $table->string('body',300);
             $table->timestamps();

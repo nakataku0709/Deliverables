@@ -8,6 +8,8 @@ use App\Models\Comment;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
+use Spotify;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -22,17 +24,19 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post, 'comments' => $comment->where('post_id', $post->id)->get()]);
     }
     
-    public function create()
+    public function create(Request $request, Category $category)
     {
-        return view('posts/create');
+        //dd($request->music_id);
+        $music=Spotify::track($request->music_id)->get();
+        //dd($music);
+        return view('posts/create')->with(['music' => $music, 'categories' => $category->get()]);
     }
     
     public function store(Post $post, PostRequest $request)
     {
         $input = $request['post'];
+        //dd($input);
         $input['user_id'] = \Auth::id();
-        $input['category_id']=1;
-        $input['music_id'] = \Auth::id();
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
@@ -53,5 +57,13 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect('/');
+    }
+    
+    public function search()
+    {
+        $search = Spotify::searchTracks($_GET['q'])->limit(10)->get();
+        //dd($search);
+        $result = $search["tracks"]["items"];
+        return view("posts.music")->with(["result"=>$result]);
     }
 }

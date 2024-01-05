@@ -1,6 +1,9 @@
 <x-app-layout>
         <h1>LyricLearn</h1>
-        <a href="/posts/create">投稿</a>
+        <form action="/search" method="get">
+            曲を検索 <input type="search" id="q" name="q" placeholder="Enter Search Term"/>
+            <input type="submit" value="検索" />
+        </form>
         <div class='post'>
              @foreach ($posts as $post)
                 <div class='post'>

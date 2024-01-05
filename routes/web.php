@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [PostController::class, 'index'])->name('index')->middleware('auth');
-Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/create/{music_id}', [PostController::class, 'create']);
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
@@ -39,5 +39,6 @@ Route::put('posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'delete']);
 Route::get('/posts/favorite/{post}', [FavoriteController::class, 'favorite'])->name('favorite');
 Route::get('/posts/unfavorite/{post}', [FavoriteController::class, 'unfavorite'])->name('unfavorite');
+Route::get("/search", [PostController::class, "search"]);
 
 require __DIR__.'/auth.php';
