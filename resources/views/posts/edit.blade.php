@@ -14,12 +14,12 @@
             @csrf
             @method('PUT')
             <div class="title">
-                <h2>Title</h2>
+                <h2>＜キーフレーズ＞</h2>
                     <input type="text" name="post[title]" placeholder="タイトル" value="{{ $post->title }}">
                     <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div class="body">
-                <h2>Body</h2>
+                <h2>＜解説＞</h2>
                 <textarea name="post[body]" placeholder="解説">{{ $post->body }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>

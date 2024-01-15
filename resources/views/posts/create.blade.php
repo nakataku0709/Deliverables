@@ -12,6 +12,8 @@
         <h1>投稿</h1>
         <form action="/posts" method="POST">
             @csrf
+            アーティスト：{{$music["artists"][0]["name"]}}<br>
+            曲名　　 ：{{$music["name"]}}</br></br>
             <div class="title">
                 <h2>キーフレーズ</h2>
                     <input type="text" name="post[title]" placeholder="キーフレーズ" value="{{ old('post.title') }}">
@@ -23,7 +25,7 @@
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <div class="category">
-                <h2>Category</h2>
+                <h2>カテゴリー</h2>
                 <select name="post[category_id]">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>

@@ -9,7 +9,9 @@
 
     </head>
     <body class="antialiased">
-        <h1>＜コメント＞</h1>
+        <h1>＜詳細画面＞</h1>
+        アーティスト：{{$music["artists"][0]["name"]}}<br>
+        曲名　　 ：{{$music["name"]}}</br></br>
         <h3>＜キーフレーズ＞</h3>
         <h3 class='title'>
             {{ $post->title }}

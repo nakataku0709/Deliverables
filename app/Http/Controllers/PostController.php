@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
+use App\Models\Bookmark;
 use Spotify;
 use App\Models\Category;
 
@@ -15,13 +16,14 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        //return view('posts/index')->with(['posts' => $post->get()]);  
         return view('posts/index')->with(['posts' => $post->get()]);
     }
     
     public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post, 'comments' => $comment->where('post_id', $post->id)->get()]);
+        //dd($post);
+        $music=Spotify::track($post->music_id)->get();
+        return view('posts/show')->with(['music' => $music, 'post' => $post, 'comments' => $comment->where('post_id', $post->id)->get()]);
     }
     
     public function create(Request $request, Category $category)
@@ -38,7 +40,7 @@ class PostController extends Controller
         //dd($input);
         $input['user_id'] = \Auth::id();
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/show/' . $post->id);
     }
     
     public function edit(Post $post)
@@ -65,5 +67,11 @@ class PostController extends Controller
         //dd($search);
         $result = $search["tracks"]["items"];
         return view("posts.music")->with(["result"=>$result]);
+    }
+    
+    public function bookmark(Bookmark $bookmark)
+    {
+        $post = $bookmark::where('user_id', Auth::id()) -> get();
+        return view('posts/bookmark')->with(['posts' => $post]);
     }
 }

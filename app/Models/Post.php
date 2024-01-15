@@ -31,6 +31,10 @@ class Post extends Model
         return $this->hasMany(Favorite::class);
     }
     
+    public function bookmarks() {
+        return $this->hasMany(Bookmark::class);
+    }
+    
     protected $fillable = [
         'title',
         'body',
@@ -43,5 +47,11 @@ class Post extends Model
     {
         //dd(!is_null(Favorite::where('post_id', $this->id)->where('user_id', Auth::id())->first()));
         return is_null(Favorite::where('post_id', $this->id)->where('user_id', Auth::id())->first());
+    }
+    
+    public function is_bookmark()
+    {
+        //dd(!is_null(Bookmark::where('post_id', $this->id)->where('user_id', Auth::id())->first()));
+        return is_null(Bookmark::where('post_id', $this->id)->where('user_id', Auth::id())->first());
     }
 }

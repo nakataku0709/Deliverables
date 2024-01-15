@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('HOME') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('view_bookmark')" :active="request()->routeIs('view_bookmark')">
+                        {{ __('ブックマーク') }}
+                    </x-nav-link>
                 </div>
             </div>
 

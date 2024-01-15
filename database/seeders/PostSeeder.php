@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'user_id' => '1',
             'category_id' => '1',
-            'music_id' => '1',
+            'music_id' => '4cluDES4hQEUhmXj6TXkSo',
             'artist_name' => 'One Direction',
             'title' => "You're insecure",
             'body' => 'insecureは不安なという意味',
@@ -31,7 +31,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'user_id' => '1',
             'category_id' => '1',
-            'music_id' => '1',
+            'music_id' => '3iLBFgaQJ94iarMgzrTuWb',
             'artist_name' => 'Charlie Puth',
             'title' => 'Get her name and get her nummber',
             'body' => 'あの子の名前を知って、電話番号を知って',
@@ -43,7 +43,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'user_id' => '1',
             'category_id' => '1',
-            'music_id' => '1',
+            'music_id' => '7JJmb5XwzOO8jgpou264Ml',
             'artist_name' => 'Shawn Mendes',
             'title' => "There's Nothing Holdin' ME Back",
             'body' => '彼女が行く場所についていきたい',
