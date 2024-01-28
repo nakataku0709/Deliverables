@@ -8,7 +8,7 @@
             <audio controls src="{{$music["preview_url"]}}" class="mt-2"></audio>
             <form method='get' action="/posts/create/{{$music["id"]}}">
                 <input type='hidden' value='{{$music["id"]}}' name='music_id'>
-                <button type='submit'>この曲について投稿する</button>
+                <button type='submit'>＜この曲について投稿する＞</button>
             </form>
         </div>
         アーティスト：{{$music["artists"][0]["name"]}}<br>

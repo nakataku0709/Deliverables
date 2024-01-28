@@ -35,11 +35,6 @@
                     	</a>
                     @endif
                     </span>
-                    <form action="/posts/show/{{ $post->post->id }}" id="form_{{ $post->post->id }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->post->id }})">削除</button>
-                    </form>
                 </div>
             @endforeach
         </div>

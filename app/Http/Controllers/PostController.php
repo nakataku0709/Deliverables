@@ -52,7 +52,7 @@ class PostController extends Controller
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/show/' . $post->id);
     }
     
     public function delete(Post $post)

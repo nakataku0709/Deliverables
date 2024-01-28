@@ -26,7 +26,7 @@
             <input type="submit" value="更新">
         </form>
         <div class='footer'>
-            <a href="/posts/{{ $post->id }}">戻る</a>
+            <a href="/posts/show/{{ $post->id }}">戻る</a>
         </div>
     </body>
 </html>
