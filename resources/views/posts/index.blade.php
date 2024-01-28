@@ -1,6 +1,4 @@
 <x-app-layout>
-    <div class="flex justify-center">
-        <div class="text-align:left">
         <h1>LyricLearn</h1>
         <form action="/search" method="get">
             曲/アーティスト を検索 <input type="search" id="q" name="q" placeholder="Enter Search Term"/>
@@ -59,6 +57,4 @@
                 }
             }
         </script>
-        </div>
-    </div>
 </x-app-layout>
